@@ -1,0 +1,79 @@
+#pragma once
+#pragma once
+//Τΰιλ square.h 
+
+
+#ifndef RHOMB_H 
+#define RHOMB_H 
+
+#include "line.h" 
+
+class Rhomb : public virtual Shape
+{
+public:
+
+	/*Rhomb(const Point& left, const Point& top,const Point& right, const Point& bottom)*/
+	Rhomb(const Point& left, const Point& right)
+	{
+		_left = new Line(left, top);
+		//_top = new Line(top,right);
+		//_right = new Line(right,bottom);
+		_bottom = new Line(bottom,left);
+
+	}
+
+
+	virtual void draw(Screen* screen) const
+	{
+		_left->draw(screen);
+		_top->draw(screen);
+		_right->draw(screen);
+		_bottom->draw(screen);
+	}
+
+	virtual void move(Point p)
+	{
+		_left->move(p);
+		_top->move(p);
+		_right->move(p);
+		_bottom->move(p);
+	}
+
+	Point getLeftTop() const
+	{
+		return _left->getLeftTop();
+	}
+
+	Point getRightTop() const
+	{
+
+
+		return _right->getRightTop();
+	}
+
+	Point getLeftBottom() const
+	{
+		return _left->getLeftBottom();
+	}
+
+	Point getRightBottom() const
+	{
+		return _right->getRightBottom();
+	}
+
+	virtual ~Rhomb()
+	{
+		delete _left;
+		delete _top;
+		delete _right;
+		delete _bottom;
+	}
+
+
+
+
+protected:
+	Line * _left, *_top, *_right, *_bottom;
+
+};
+#endif //RHOMB_H 
