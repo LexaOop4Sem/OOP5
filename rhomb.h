@@ -29,8 +29,15 @@ public:
 	//	cout<<p.getX();
 	}
 
-	void DrawExeptions(Screen* screen) {
-		try {
+	void DrawExeptions(Screen* screen)const {
+
+			_leftRight->draw(screen);
+			_leftTop->draw(screen);
+			_topRight->draw(screen);
+			_leftBot->draw(screen);
+			_rightBot->draw(screen);
+			_topBot->draw(screen);
+		/*try {
 			if (((_leftRight->getFirstPoint().getX()) < 0) || (_leftRight->getFirstPoint().getX()) >100) {
 				cout << ((_leftRight->getFirstPoint()).getX());
 				Point p = _leftRight->getFirstPoint();
@@ -59,33 +66,65 @@ public:
 			_topBot->EditLine(Point(newdot.getX(), newdot.getY() - 4), Point(newdot.getX(), newdot.getY() + 4));
 			}
 			draw(screen);
-		}
+		}*/
 	
 	}
 
 
 	virtual void draw(Screen* screen) const
 	{
-		
-				_leftRight->draw(screen);
-				_leftTop->draw(screen);
-				_topRight->draw(screen);
-				_leftBot->draw(screen);
-				_rightBot->draw(screen);
-				_topBot->draw(screen);
-			
-		////err with exeption from out of range vector
-		//try {
-		//	_leftRight->draw(screen);
-		//	_leftTop->draw(screen);
-		//	_topRight->draw(screen);
-		//	_leftBot->draw(screen);
-		//	_rightBot->draw(screen);
-		//	_topBot->draw(screen);
-		//}
-		//catch (...) {
-		//	std::cout << "catch error from drawing rhomb, rhomb was deleted" << endl;
-		//}
+
+		try {
+			if (((_leftRight->getFirstPoint().getX()) < 0) || (_leftRight->getFirstPoint().getX()) >100) {
+				cout << ((_leftRight->getFirstPoint()).getX());
+				Point p = _leftRight->getFirstPoint();
+				cout << p.getX();
+				std::cout << "err" << endl;
+				throw  MyError("out of screen range", "rhomb");
+			}
+			DrawExeptions(screen);
+		}
+		catch (MyError err) {
+			cout << err.message << endl;
+			cout << err.TypeOfShape << endl;
+			cout << "enter new dot coordinates " << endl;
+			cout << "X: " << endl;
+			int newX, newY;
+			cin >> newX;
+			cout << "Y: " << endl;
+			cin >> newY;
+			Point newdot(newX, newY);
+			{_leftRight->EditLine(Point(newdot.getX() - 4, newdot.getY()), Point(newdot.getX() + 4, newdot.getY()));
+			_leftRight->EditLine(Point(newdot.getX() - 4, newdot.getY()), Point(newdot.getX() + 4, newdot.getY()));
+			_leftTop->EditLine(Point(newdot.getX() - 4, newdot.getY()), Point(newdot.getX(), newdot.getY() - 4));
+			_topRight->EditLine(Point(newdot.getX(), newdot.getY() - 4), Point(newdot.getX() + 4, newdot.getY()));
+			_leftBot->EditLine(Point(newdot.getX() - 4, newdot.getY()), Point(newdot.getX(), newdot.getY() + 4));
+			_rightBot->EditLine(Point(newdot.getX() + 4, newdot.getY()), Point(newdot.getX(), newdot.getY() + 4));
+			_topBot->EditLine(Point(newdot.getX(), newdot.getY() - 4), Point(newdot.getX(), newdot.getY() + 4));
+			}
+			DrawExeptions(screen);
+		}
+
+		//
+		//		_leftRight->draw(screen);
+		//		_leftTop->draw(screen);
+		//		_topRight->draw(screen);
+		//		_leftBot->draw(screen);
+		//		_rightBot->draw(screen);
+		//		_topBot->draw(screen);
+		//	
+		//////err with exeption from out of range vector
+		////try {
+		////	_leftRight->draw(screen);
+		////	_leftTop->draw(screen);
+		////	_topRight->draw(screen);
+		////	_leftBot->draw(screen);
+		////	_rightBot->draw(screen);
+		////	_topBot->draw(screen);
+		////}
+		////catch (...) {
+		////	std::cout << "catch error from drawing rhomb, rhomb was deleted" << endl;
+		////}
 
 	}
 
