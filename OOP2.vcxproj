@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cross.h" />
+    <ClInclude Include="Error.h" />
     <ClInclude Include="line.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="rhomb.h" />

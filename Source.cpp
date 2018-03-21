@@ -11,9 +11,10 @@ int main()
 	auto screen = std::make_unique<Screen>(100, 100);
 
 	std::vector<std::shared_ptr<Shape>> shapes;
-	//shapes.emplace_back(std::make_shared<Rhomb>(Point(1, 5), Point(8, 1), Point(7, 5), Point(8, 9)));
-	//shapes.emplace_back(std::make_shared<Rhomb>(Point(1, 5), Point(9, 5), Point(5, 1), Point(5, 9)));
-	//shapes.emplace_back(std::make_shared<Rhomb>(Point(1, 5), Point(9, 5), Point(5, 1), Point(5, 9)));
+
+
+	shapes.emplace_back(std::make_shared<Rhomb>(Point(3, 23)));
+	
 	shapes.emplace_back(std::make_shared<Rhomb>(Point(15, 23)));
 	shapes.emplace_back(std::make_shared<Rhomb>(Point(33, 23)));
 
@@ -81,5 +82,6 @@ int main()
 	screen->draw();
 
 	std::cin.get();
+	system("pause");
 	return 0;
 }

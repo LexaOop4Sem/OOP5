@@ -74,7 +74,8 @@ public:
 
 	void putPoint(const std::uint32_t x, const std::uint32_t y)
 	{
-		_screen[x][y] = Pixel::BLACK;
+		/*_screen[x][y] = Pixel::BLACK;*/
+		_screen.at(x).at(y) = Pixel::BLACK;
 	}
 
 	void clear()

@@ -67,6 +67,12 @@ public:
 	}
 
 	
+	void EditLine(const Point& a, const Point& b)
+	{
+		_a = a;
+		_b = b;
+	}
+
 
 		Point getSecondPoint() const
 	{
