@@ -24,6 +24,7 @@ public:
 		_top->draw(screen);
 		_right->draw(screen);
 		_bottom->draw(screen);
+
 	}
 
 	virtual void move(Point p)

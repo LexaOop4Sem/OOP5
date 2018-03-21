@@ -77,8 +77,15 @@ int main()
 	auto rightDot = std::make_shared<Line>(p1, p1);
 	shapes.emplace_back(rightDot); //Правая точка 
 
-	for (auto shape : shapes)
-		shape->draw(screen.get());
+	try {
+		for (auto shape : shapes) {
+			shape->draw(screen.get());
+		}
+	}
+	catch (...) {
+		cout <<" error"<< endl;
+		
+	}
 	screen->draw();
 
 	std::cin.get();
