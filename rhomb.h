@@ -58,9 +58,9 @@ public:
 
 		try {
 			if (((_leftRight->getFirstPoint().getX()) < 0) || (_leftRight->getFirstPoint().getX()) >100) {
-				cout << ((_leftRight->getFirstPoint()).getX());
+				//cout << ((_leftRight->getFirstPoint()).getX());
 				Point p = _leftRight->getFirstPoint();
-				cout << p.getX();
+				//cout << p.getX();
 				std::cout << "err" << endl;
 				throw  MyError("out of screen range", "rhomb");
 			}
